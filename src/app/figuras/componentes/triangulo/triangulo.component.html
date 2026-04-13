@@ -1,0 +1,65 @@
+<ion-card>
+  <ion-img
+    alt="Representacion de un triangulo"
+    src="assets/img/Triangulo.png"
+  ></ion-img>
+  <ion-card-header>
+    <ion-card-title>Calcular Perimetro de Triangulo Escaleno</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-text color="medium">
+      <p>Ingresa los tres lados de un triangulo escaleno para calcular su perimetro.</p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">Lado A</ion-label>
+      <ion-input
+        [(ngModel)]="ladoA"
+        inputmode="decimal"
+        min="0"
+        name="ladoA"
+        placeholder="Ejemplo: 5"
+        type="number"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Lado B</ion-label>
+      <ion-input
+        [(ngModel)]="ladoB"
+        inputmode="decimal"
+        min="0"
+        name="ladoB"
+        placeholder="Ejemplo: 6"
+        type="number"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Lado C</ion-label>
+      <ion-input
+        [(ngModel)]="ladoC"
+        inputmode="decimal"
+        min="0"
+        name="ladoC"
+        placeholder="Ejemplo: 7"
+        type="number"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" expand="block" (click)="calcularPerimetro()">
+      Calcular perimetro
+    </ion-button>
+
+    <div *ngIf="mostrarResultado" class="resultado">
+      <ion-text *ngIf="error; else perimetroValido" color="danger">
+        {{ error }}
+      </ion-text>
+      <ng-template #perimetroValido>
+        <ion-text color="success">
+          El perimetro del triangulo es: <strong>{{ perimetro | number: '1.2-2' }}</strong>
+        </ion-text>
+      </ng-template>
+    </div>
+  </ion-card-content>
+</ion-card>

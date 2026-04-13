@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Perimetros de Figuras Geometricas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Perimetros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="contenedor-principal ion-padding">
+    <ion-item>
+      <ion-label position="stacked">Selecciona la figura geometrica</ion-label>
+      <ion-select
+        [(ngModel)]="figuraSeleccionada"
+        interface="alert"
+        [interfaceOptions]="{ header: 'Figura Geometrica' }"
+        placeholder="Selecciona una opcion"
+        okText="OK"
+        cancelText="CANCEL"
+      >
+        <ion-select-option value="circulo">Circulo</ion-select-option>
+        <ion-select-option value="triangulo">Triangulo escaleno</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-text *ngIf="!figuraSeleccionada" color="medium">
+      <p class="mensaje-inicial">Selecciona una figura para comenzar.</p>
+    </ion-text>
+
+    <app-circulo *ngIf="figuraSeleccionada === 'circulo'"></app-circulo>
+    <app-triangulo *ngIf="figuraSeleccionada === 'triangulo'"></app-triangulo>
+  </div>
+</ion-content>
