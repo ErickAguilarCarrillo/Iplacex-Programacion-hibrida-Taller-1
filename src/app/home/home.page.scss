@@ -1,6 +1,8 @@
 .contenedor-principal {
   display: grid;
   gap: 16px;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 .mensaje-inicial {
